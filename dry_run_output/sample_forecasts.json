@@ -1,0 +1,95 @@
+{
+  "generated_at": "2026-11-24T06:51:35.063470+00:00",
+  "note": "Dry-run on synthetic fixture questions (fixtures/questions.json). Nothing was posted to Metaculus. The live API requires authentication for reads, as the probe below shows.",
+  "unauthenticated_api_probe": {
+    "url": "https://www.metaculus.com/api/posts/?tournaments=minibench&statuses=open&limit=3",
+    "status_code": 403,
+    "body_excerpt": "Permission Error: The API is only available to authenticated users. Please create an account and use your API token to access the API."
+  },
+  "sample_forecasts": [
+    {
+      "question": "Will the US unemployment rate (U-3, seasonally adjusted) for December 2026 be above 4.5%?",
+      "type": "BinaryQuestion",
+      "forecaster": "fallback",
+      "forecast": {
+        "probability": 0.5
+      },
+      "rationale": "Produced by the deterministic base-rate fallback forecaster (no LLM was configured / available for this question).\nWith no question-specific signal available, the forecast is the uninformative base rate.\nForecast: 50%"
+    },
+    {
+      "question": "What will the average US regular gasoline retail price, in dollars per gallon, be in the EIA weekly report for the week ending December 25, 2026?",
+      "type": "NumericQuestion",
+      "forecaster": "fallback",
+      "forecast": {
+        "percentiles": [
+          {
+            "percentile": 0.1,
+            "value": 2.8
+          },
+          {
+            "percentile": 0.25,
+            "value": 3.4
+          },
+          {
+            "percentile": 0.5,
+            "value": 4.0
+          },
+          {
+            "percentile": 0.75,
+            "value": 4.6
+          },
+          {
+            "percentile": 0.9,
+            "value": 5.2
+          }
+        ]
+      },
+      "rationale": "Produced by the deterministic base-rate fallback forecaster (no LLM was configured / available for this question).\nPercentiles are spread at fixed fractions of the allowed range [2.0, 6.0] USD per gallon.\nForecast percentiles: P10=2.8, P25=3.4, P50=4, P75=4.6, P90=5.2"
+    },
+    {
+      "question": "Which company will have the largest market capitalization at the close of trading on December 31, 2026?",
+      "type": "MultipleChoiceQuestion",
+      "forecaster": "fallback",
+      "forecast": {
+        "probabilities": {
+          "NVIDIA": 0.19999999999999996,
+          "Apple": 0.2,
+          "Microsoft": 0.2,
+          "Alphabet": 0.2,
+          "Other": 0.2
+        }
+      },
+      "rationale": "Produced by the deterministic base-rate fallback forecaster (no LLM was configured / available for this question).\nWith no option-specific signal available, probability is spread uniformly.\nForecast: NVIDIA: 20.0%, Apple: 20.0%, Microsoft: 20.0%, Alphabet: 20.0%, Other: 20.0%"
+    },
+    {
+      "question": "On what date will the Federal Reserve next cut the target range for the federal funds rate?",
+      "type": "DateQuestion",
+      "forecaster": "fallback",
+      "forecast": {
+        "percentiles": [
+          {
+            "percentile": 0.1,
+            "date": "2027-02-18T00:00:00+00:00"
+          },
+          {
+            "percentile": 0.25,
+            "date": "2027-04-18T06:00:00+00:00"
+          },
+          {
+            "percentile": 0.5,
+            "date": "2027-06-16T12:00:00+00:00"
+          },
+          {
+            "percentile": 0.75,
+            "date": "2027-08-14T18:00:00+00:00"
+          },
+          {
+            "percentile": 0.9,
+            "date": "2027-10-13T00:00:00+00:00"
+          }
+        ]
+      },
+      "rationale": "Produced by the deterministic base-rate fallback forecaster (no LLM was configured / available for this question).\nPercentile dates are spread at fixed fractions of the allowed date range.\nForecast percentiles: P10=2027-02-18, P25=2027-04-18, P50=2027-06-16, P75=2027-08-14, P90=2027-10-13"
+    }
+  ]
+}
